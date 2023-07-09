@@ -1,0 +1,133 @@
+body {
+  background-image: url("../images/logo.png"), url("../images/bk.png");
+  background-repeat: no-repeat, no-repeat;
+  background-position: center center, center bottom;
+  background-attachment: fixed, fixed;
+  overflow-y: scroll;
+}
+
+.container {
+  height: 400px;
+  /* Set the desired height for the container */
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 100%;
+  overflow-y: auto;
+
+}
+
+.input-container {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 4%;
+  width: 90%;
+  margin-left: 5%;
+
+
+}
+
+.form_style {
+  border: #afafaf solid;
+  border-radius: 90px;
+  width: 90%;
+  background-color: #ffffff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.input-field {
+  padding-right: 60px;
+  /* Adjust the value based on the image size */
+  width: 86%;
+  /* Adjust the width as needed */
+  height: 50px;
+  border-radius: 90px;
+  /* Adjust the border radius as needed */
+  border: none;
+  font-size: 28px;
+  outline: none;
+  margin-left: 2%;
+  margin-bottom: 15px;
+}
+
+.input-field::placeholder {
+  color: #b3afaf;
+}
+
+.send-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 3%;
+}
+
+
+.send-button img {
+  width: 40px;
+  /* Adjust the width as needed */
+  height: auto;
+  
+}
+
+img {
+  padding-top: 20px;
+}
+
+
+/* msg bubble */
+.message-bubble {
+  display: inline-block;
+  background-color: transparent;
+  background-color: rgba(230, 227, 227, 0.6);
+  border: #afafaf solid;
+  padding: 10px 15px;
+  border-radius: 20px 20px 20px 0;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  max-width: 45%;
+  font-size: 28px;
+}
+
+.message-content {
+  color: #000;
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  margin-right: 11%;
+}
+
+.message-bubble_cls {
+  max-width: 45%;
+  background-color: transparent;
+  color: #000;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px;
+  max-width: 70%;
+  border-radius: 20px 20px 0 20px;
+  border: #DABBAC solid;
+  background-color: rgba(230, 227, 227, 0.6);
+  font-size: 28px;
+}
+
+.message-bubble_cls::before {
+  content: '';
+  position: absolute;
+  right: -5px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-top: 10px solid transparent;
+  border-left: 10px solid #efefef;
+  border-bottom: 10px solid transparent;
+
+}
+
+#scrollable-container {
+  height: 800px;
+  /* Adjust the height as needed */
+  overflow: auto;
+}

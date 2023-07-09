@@ -28,7 +28,7 @@ def gptRequist(field):
     url = "https://api.openai.com/v1/chat/completions"
     headers = {
         "Content-Type": "application/json",
-        "Authorization": f"Bearer OPENAI API KEY"  
+        "Authorization": f"OPENAI API KEY"  
     }
     request_data = {
         "model": "gpt-3.5-turbo",

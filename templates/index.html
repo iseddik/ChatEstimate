@@ -1,0 +1,69 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>I2A hackathon</title>
+    <link rel="stylesheet" href="../static/CSS/index.css">
+    <link rel="icon" href="../static/images/logo.png" type="image/icon type">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('form').submit(function (event) {
+                event.preventDefault();
+                var name = $('#name').val();
+                $.ajax({
+                    type: 'POST',
+                    url: '/process_form',
+                    data: {
+                        name: name,
+                    },
+                    success: function (response) {
+                        var div = document.getElementById('welcom');
+                        div.style.display = 'none';
+
+                        var clients = response.result.client;
+                        var servers = response.result.server;
+                        var clientsText = "";
+                        clientsText += '<div class="message-bubble">';
+                        clientsText += '<div id="result">Hello, how can I help you today?</div>';
+                        clientsText += '</div><br>';
+                        for (var i = 0; i < clients.length; i++) {
+                            clientsText += '<div class="chat-container">';
+                            clientsText += '<div class="message-bubble_cls">' + clients[i] + '</div>';
+                            clientsText += '</div><br>';
+
+                            clientsText += '<div class="message-bubble">';
+                            clientsText += '<div id="result">' + servers[i] + '</div>';
+                            clientsText += '</div><br>';
+                        }
+                        $('#result').html('<div id = "scrollable-container">' + clientsText + '</div>');
+                        clearInputFields()
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="input-container">
+            <div class="message-bubble" id="welcom">
+                <div>Hello, how can I help you today?</div>
+            </div>
+            <br>
+            <div id="result"></div>
+            <form class="form_style">
+                <input type="text" class="input-field" id="name" name="name" placeholder="Write your ask here ...">
+                <button class="send-button" type="submit" onclick="enable()">
+                    <img src="../static/images/send.png" alt="Send">
+                </button>
+            </form>
+        </div>
+    </div>
+    <script src="../static/JS/index.js"></script>
+</body>
+
+</html>
